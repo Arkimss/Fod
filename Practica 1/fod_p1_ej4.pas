@@ -126,7 +126,8 @@ begin
 			writeln('No se encontro el empleado');
 		ok:= false;		
 		writeln('Ingrese el apellido del empleado a modificar');
-		readln(st);		
+		readln(st);	
+		seek(emp, 0);
 	end;
 	close(emp);	
 end;
