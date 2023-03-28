@@ -38,20 +38,17 @@ procedure minimo(var vD: vectorDetalles; var vR: vectorRegistros; var min: munic
 var
 	i, pos: integer;
 begin
-	min.codigo_localidad:= valoralto;
-	pos:= 0;
-	for i:= 1 to n do begin
-		if (vR[i].codigo_localidad <> valoralto) then begin
+	min := vR[1];
+	pos:= 1;
+	for i:= 2 to n do begin
 			if (vR[i].codigo_localidad < min.codigo_localidad) or 
 			((vR[i].codigo_localidad = min.codigo_localidad) and
 			(vR[i].codigo_cepa < min.codigo_cepa)) then begin
 				min.codigo_localidad:= vR[i].codigo_localidad;
 				pos:= i;
 			end;
-		end;
 	end;
-	if (pos <> 0) then
-		leer(vD[pos], vR[pos]);
+	leer(vD[pos], vR[pos]);
 end;
 
 procedure crearMaestro(var mae: maestro; var vD:vectorDetalles);
